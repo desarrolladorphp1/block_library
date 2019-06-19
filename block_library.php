@@ -37,8 +37,7 @@ class block_library extends block_base {
      * Initializes class member variables.
      */
     public function init() {
-        // Needed by Moodle to differentiate between blocks.
-        $this->title = get_string('pluginname', 'block_library');
+        $this->title = '';
     }
 
     /**
@@ -47,6 +46,7 @@ class block_library extends block_base {
      * @return stdClass The block contents.
      */
     public function get_content() {
+        global $PAGE;
 
         if ($this->content !== null) {
             return $this->content;
@@ -62,25 +62,11 @@ class block_library extends block_base {
         $this->content->icons = array();
         $this->content->footer = '';
 
-        $text = 'Please define the content text in /blocks/library/block_library.php.';
-        $this->content->text = $text;
+        $output = $PAGE->get_renderer('block_myproducts');
+        $page = new \block_library\output\library_content();
+        $this->content->text  = $output->render($page);
 
         return $this->content;
-    }
-
-    /**
-     * Defines configuration data.
-     *
-     * The function is called immediatly after init().
-     */
-    public function specialization() {
-
-        // Load user defined title and make sure it's never empty.
-        if (empty($this->config->title)) {
-            $this->title = get_string('pluginname', 'block_library');
-        } else {
-            $this->title = $this->config->title;
-        }
     }
 
     /**
