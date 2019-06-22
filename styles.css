@@ -1,0 +1,19 @@
+#main-layout header.header__wrapper {
+    box-shadow: 0 5px 10px hsla(0, 0%, 0%, 0.2);
+}
+
+.block_library_library .library-header {
+    height: 160px;
+    background-image: url([[pix:block_library|header_small]]);
+    background-size: cover;
+    background-position: center center;
+    border: 0;
+}
+
+body:not(.ciencias) #page-content #maincontent {
+    height: 0;
+}
+
+body:not(.ciencias) #page-content .block {
+    border: 0;
+}

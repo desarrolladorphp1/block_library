@@ -48,6 +48,11 @@ class block_library extends block_base {
     public function get_content() {
         global $PAGE;
 
+        $block = optional_param('block', null, PARAM_TEXT);
+        if ($block !== 'library') {
+            return '';
+        }
+
         if ($this->content !== null) {
             return $this->content;
         }
@@ -62,7 +67,7 @@ class block_library extends block_base {
         $this->content->icons = array();
         $this->content->footer = '';
 
-        $output = $PAGE->get_renderer('block_myproducts');
+        $output = $PAGE->get_renderer('block_library');
         $page = new \block_library\output\library_content();
         $this->content->text  = $output->render($page);
 

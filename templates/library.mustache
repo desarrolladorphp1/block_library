@@ -1,0 +1,74 @@
+<div class="block_library_library">
+    <header class="library-header">
+        <div class="library-header--wrapper">
+            <div class="return">
+                <a href="/my">{{# pix }}i/return, block_library {{/ pix }} {{# str }} return, block_library {{/ str }}</a>
+            </div>
+            <h1 class="title">{{# str }} projectlibrary, block_library {{/ str }}</h1>
+        </div>
+    </header>
+    <section class="controls">
+        <div class="controls-wrapper">
+            <div class="text-right">
+                <a class="btn-add-project" href="/local/daatool/new.php">{{# str }}newproject, block_library{{/ str }} {{# pix }}i/plus, block_library {{/ pix }}</a>
+            </div>
+        </div>
+    </section>
+    <section class="library">
+        <div class="projects-wrapper">
+            {{#hasprojects}}
+                <h2>Los proyectos de mi colegio</h2>
+                <div class="projects-list">
+                {{#projects}}
+                    <a href="{{projecturl}}" class="projects-list--product">
+                        <div class="product-cover--wrapper{{^hasimage}} no-cover{{/hasimage}}" {{#hasimage}}style="background-image:url({{projectimage}})"{{/hasimage}}>
+                            <div class="dropdown project-dropdown">
+                                <button class="btn dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    {{# pix }} i/bin_white, theme_daatool {{/ pix }}
+                                </button>
+                                <div class="dropdown-menu">
+                                    <ul>
+                                        <li class="dropdown-item">Editar</li>
+                                        <li class="dropdown-item"></li>
+                                        <li>Utilizar en el aula</li>
+                                        <li></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <div class="product-title--wrapper">
+                                <span class="product-title">{{name}}</span>
+                            </div>
+                            <div class="product-levels--wrapper">
+                                {{#projectlevels}}
+                                    <div>
+                                        <div class="detail-title">{{name}}:</div>
+                                        <div class="detail-content">{{levels}}</div>
+                                    </div>
+                                {{/projectlevels}}
+                            </div>
+                            <div class="product-subjects--wrapper">
+                                <div>
+                                    <div class="detail-title">Áreas:</div>
+                                    <div class="detail-content">{{projectareas}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                {{/projects}}
+            </div>
+            {{/hasprojects}}
+            {{^hasprojects}}
+                <div class="no-projects">
+                    <div class="no-projects--wrapper">
+                        <h2 class="no-projects__title">Aún no has creado
+                            ningún proyecto</h2>
+                        <p class="no-projects__message">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+                        <a class="btn btn-new-project" href="/local/daatool/new.php">Nuevo proyecto</a>
+                    </div>
+                </div>
+            {{/hasprojects}}
+        </div>
+    </section>
+</div>

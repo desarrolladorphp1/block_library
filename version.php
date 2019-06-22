@@ -29,3 +29,6 @@ $plugin->release = '0.1.0';
 $plugin->version = 2019061910;
 $plugin->requires = 2017051500;
 $plugin->maturity = MATURITY_STABLE;
+$plugin->dependencies = [
+    'local_daatool' => 2019021211
+];

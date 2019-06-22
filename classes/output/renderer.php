@@ -21,8 +21,8 @@ defined('MOODLE_INTERNAL') || die;
 use plugin_renderer_base;
 
 class renderer extends plugin_renderer_base {
-    public function render_library_page(library_content $page) {
+    public function render_library_content(library_content $page) {
         $data = $page->export_for_template($this);
-        return 'caca';
+        return parent::render_from_template('block_library/library', $data);
     }
 }

@@ -18,7 +18,6 @@
  * Plugin strings are defined here.
  *
  * @package     block_library
- * @category    string
  * @copyright   2019 SM
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -26,3 +25,6 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['pluginname'] = 'Library';
+$string['return'] = 'Volver';
+$string['projectlibrary'] = 'Biblioteca de proyectos';
+$string['newproject'] = "Nuevo proyecto";
